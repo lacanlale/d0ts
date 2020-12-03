@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/jonathan/Code/COMP440/COMP440.Project/project3'
+let g:netrw_dirhist_2='/home/jonathan/Code/COMP 440/final project/2/Comp-440-team-5/PHP'
+let g:netrw_dirhist_1='/home/jonathan/Code/COMP 440/final project/2/Comp-440-team-5'
+let g:netrw_dirhist_0='/home/jonathan/Code/COMP 440/final project/2'
+let g:netrw_dirhist_9='/home/jonathan/Code/COMP 440/final project'
+let g:netrw_dirhist_8='/home/jonathan/Code/COMP 440'
+let g:netrw_dirhist_7='/home/jonathan/Code'
+let g:netrw_dirhist_6='/home/jonathan/Code/COMP440'
+let g:netrw_dirhist_5='/home/jonathan/Code/COMP440/COMP440.Project'
+let g:netrw_dirhist_4='/home/jonathan/Code/COMP440/COMP440.Project/project3'

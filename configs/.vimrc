@@ -51,7 +51,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox' " Colorscheme
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' " Git ssl config
 Plug 'https://github.com/ycm-core/YouCompleteMe.git' " Autocomplete
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree' " Undo Tree
+Plug 'vim-airline/vim-airline' " Airline
+Plug 'vim-airline/vim-airline-themes' " Airline themes
+Plug 'git@github.com:907th/vim-auto-save.git' " AutoSave
+Plug 'git@github.com:tpope/vim-surround.git' " Surround
 
 call plug#end()
 """""""""""
@@ -92,3 +96,11 @@ nnoremap <leader>u :UndotreeShow<CR>
 " YCM remaps
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
+
+" Airline configs
+let g:airline_section_b = '%{strftime("%H:%M %b %d")}'
+let g:airline_section_y = 'BN:%{bufnr("%")}'
+let g:airline_theme = 'angr'
+
+" AutoSave
+let g:auto_save = 1
