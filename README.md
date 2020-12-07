@@ -1,0 +1,15 @@
+- Font: MesloLGS
+- Text editor: vim
+    - Colorscheme: gruvbox
+    - Plugins:
+        - Ctrlp
+        - YCM
+        - Airline
+        - Autosave
+        - Surround
+        - UndoTree
+- Terminal: zsh
+    - Theme: Powerlevel10k
+    - Plugins:
+        - zsh-autosuggestions
+        - zsh-syntax-highligthing

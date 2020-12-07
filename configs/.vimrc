@@ -49,7 +49,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox' " Colorscheme
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' " Git ssl config
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' 
 Plug 'https://github.com/ycm-core/YouCompleteMe.git' " Autocomplete
 Plug 'mbbill/undotree' " Undo Tree
 Plug 'vim-airline/vim-airline' " Airline
