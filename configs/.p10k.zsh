@@ -134,13 +134,13 @@
 
   # Connect left prompt lines with these symbols. You'll probably want to use the same color
   # as POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND below.
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%238F╭─'
-  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%238F├─'
-  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%238F╰─'
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%239F╭─'
+  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%239F├─'
+  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%239F╰─'
   # Connect right prompt lines with these symbols.
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX='%238F─╮'
-  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX='%238F─┤'
-  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX='%238F─╯'
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX='%239F─╮'
+  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX='%239F─┤'
+  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX='%239F─╯'
 
   # Filler between left and right prompt on the first prompt line. You can set it to ' ', '·' or
   # '─'. The last two make it easier to see the alignment between left and right prompt and to
@@ -152,7 +152,7 @@
   if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
     # The color of the filler. You'll probably want to match the color of POWERLEVEL9K_MULTILINE
     # ornaments defined above.
-    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=238
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=239
     # Start filler from the edge of the screen if there are no left segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_FIRST_SEGMENT_END_SYMBOL='%{%}'
     # End filler on the edge of the screen if there are no right segments on the first line.
@@ -181,9 +181,9 @@
   # Transparent background.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
   # Green prompt symbol if the last command succeeded.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=76
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=142
   # Red prompt symbol if the last command failed.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=196
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=167
   # Default prompt symbol.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
   # Prompt symbol in command vi mode.
@@ -358,18 +358,18 @@
 
     if (( $1 )); then
       # Styling for up-to-date Git status.
-      local       meta='%244F'  # grey foreground
-      local      clean='%76F'   # green foreground
-      local   modified='%178F'  # yellow foreground
-      local  untracked='%39F'   # blue foreground
-      local conflicted='%196F'  # red foreground
+      local       meta='%235F'  # grey foreground
+      local      clean='%235F'  # grey foreground
+      local   modified='%235F'  # grey foreground
+      local  untracked='%235F'  # grey foreground
+      local conflicted='%235F'  # grey foreground
     else
       # Styling for incomplete and stale Git status.
-      local       meta='%244F'  # grey foreground
-      local      clean='%244F'  # grey foreground
-      local   modified='%244F'  # grey foreground
-      local  untracked='%244F'  # grey foreground
-      local conflicted='%244F'  # grey foreground
+      local       meta='%235F'  # grey foreground
+      local      clean='%235F'  # grey foreground
+      local   modified='%235F'  # grey foreground
+      local  untracked='%235F'  # grey foreground
+      local conflicted='%235F'  # grey foreground
     fi
 
     local res
@@ -456,8 +456,8 @@
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
   # Icon color.
-  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=76
-  typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=244
+  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=235
+  typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=235
   # Custom icon.
   # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
@@ -470,9 +470,12 @@
 
   # These settings are used for repositories other than Git or when gitstatusd fails and
   # Powerlevel10k has to fall back to using vcs_info.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=76
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=76
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=178
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=235
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=72
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=235
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=72
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=235
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=178
 
   ##########################[ status: exit code of the last command ]###########################
   # Enable OK_PIPE, ERROR_PIPE and ERROR_SIGNAL status states to allow us to enable, disable and
