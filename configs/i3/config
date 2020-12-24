@@ -1,24 +1,56 @@
+######### Run upon start up ######### 
+exec --no-startup-id redshift
+
+for_window [class="qutebrowser"] move container to workspace 2: www
+for_window [class="Spotify"] move container to workspace 3: music
+
+exec --no-startup-id spotify
+exec --no-startup-id qutebrowser
+exec --no-startup-id xfce4-terminal
+
+exec xset -dpms s off 
+
+# picom
+exec_always --no-startup-id picom --config ~/.config/picom.conf
+######### Shortcut Keys ######### 
 # Set mod variable to super key
-set $mod Mod1 # Alt-Key
+# Mod4 = OS Key
+# Mod1 = Alt key
+set $mod Mod4 
 
 # Turn borders off
 for_window [class="^.*"] border pixel 0
 
 # Change gap size
 gaps outer 4
-gaps inner 20
-gaps top 41
+gaps inner 10
 
 # Drag floating windows
 floating_modifier $mod
 
+############ $mod+KEY shortcuts ############
 # Application shortcuts
-bindsym $mod+m exec spotify # spotify
-bindsym $mod+Return exec xfce4-terminal # terminal
-bindsym $mod+b exec opera # opera
-bindsym $mod+r exec pavucontrol # sound control
-bindsym $mod+z exec zoom-client # zoom client
-bindsym Shift+$mod+q kill # kill current focus
+bindsym $mod+m exec spotify 
+bindsym $mod+Return exec xfce4-terminal 
+bindsym $mod+b exec qutebrowser
+bindsym $mod+r exec i3-input -F 'Run >'
+bindsym $mod+z exec zoom-client
+#
+# Bind keys to switch to next workspace
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
+
+# Switch to workspace
+bindsym $mod+1 workspace 1: home
+bindsym $mod+2 workspace 2: www
+bindsym $mod+3 workspace 3: music
+bindsym $mod+4 workspace 4: work
+# bindsym $mod+5 workspace 5
+# bindsym $mod+6 workspace 6
+# bindsym $mod+7 workspace 7
+# bindsym $mod+8 workspace 8
+# bindsym $mod+9 workspace 9
+# bindsym $mod+0 workspace 10
 
 # Change current focus
 bindsym $mod+h focus left
@@ -26,70 +58,37 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# Split in specified direction
+bindsym $mod+o split h
+bindsym $mod+p split v
+
+# Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+############ $mod+Shift+KEY shortcuts ############
+bindsym $mod+Shift+q kill 
+
 # Move windows with shift + arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Split in specified direction
-bindsym $mod+o split h
-bindsym $mod+p split v
-
-# Enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
-
-# Set up screenshots and partial screenshots
-bindsym --release $mod+Control+p exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
-bindsym --release $mod+Shift+p exec maim -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
-
-# Bind audio keys to pactl volume control
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-
-# Bind brightness keys to light interface
-bindsym XF86MonBrightnessUp exec sudo light -A 5
-bindsym XF86MonBrightnessDown exec sudo light -U 5
-
-# Change container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# Toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# Change focus between tiling / floating windows
-bindsym $mod+Control+space focus mode_toggle
-
-# Bind keys to switch to next workspace
-bindsym $mod+bracketright workspace next
-bindsym $mod+bracketleft workspace prev
-
-# Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1: home
+bindsym $mod+Shift+2 move container to workspace 2: www
+bindsym $mod+Shift+3 move container to workspace 3: music
+bindsym $mod+Shift+4 move container to workspace 4: work
+# bindsym $mod+Shift+5 move container to workspace 5
+# bindsym $mod+Shift+6 move container to workspace 6
+# bindsym $mod+Shift+7 move container to workspace 7
+# bindsym $mod+Shift+8 move container to workspace 8
+# bindsym $mod+Shift+9 move container to workspace 9
+# bindsym $mod+Shift+0 move container to workspace 10
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -98,7 +97,36 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Time to clockout?' -b 'Yes.' 'i3-msg exit'"
+mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end" {
+    bindsym l exec i3-msg exit
+    bindsym r exec systemctl reboot
+    bindsym s exec systemctl shutdown
+    bindsym p exec systemctl suspend
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end"
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Audio control
+bindsym $mod+Shift+plus exec pulseaudio-ctl up
+bindsym $mod+Shift+minus exec pulseaudio-ctl down
+bindsym $mod+Shift+m exec pulseaudio-ctl mute
+
+############ Other useful shortcuts ############
+# Set up screenshots and partial screenshots
+bindsym --release $mod+Control+p exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release $mod+Shift+p exec maim -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+
+# Bind brightness keys to light interface
+bindsym XF86MonBrightnessUp exec sudo light -A 5
+bindsym XF86MonBrightnessDown exec sudo light -U 5
+
+# Change focus between tiling / floating windows
+bindsym $mod+Control+space focus mode_toggle
 
 # Add resize keybindings in place of mode
 bindsym $mod+Control+Left resize shrink width 10 px or 10
@@ -109,3 +137,38 @@ bindsym $mod+Shift+Control+Left resize shrink width 1 px or 1
 bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
 bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
 bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
+######### Window Configurations ######### 
+default_border pixel 5 
+default_orientation auto
+
+workspace_layout default
+title_align center
+hide_edge_borders none
+
+workspace_auto_back_and_forth yes
+######### Color Configurations ######### 
+# class                 border  backgr. text    indicator child_border
+client.focused          #FABD2F #D79921 #ebdbb2 #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ebdbb2 #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ebdbb2 #900000   #900000
+client.placeholder      #000000 #0c0c0c #ebdbb2 #000000   #0c0c0c
+
+client.background       #ffffff
+######### Status bar config ##########
+bar {
+    colors {
+        background #1d2021
+        statusline #ebdbb2
+        separator #4b5262
+        #                       border background text
+        focused_workspace       #689d6a #8ec07c #1d2021
+        active_workspace        #1d2021 #504945 #1d2021
+        inactive_workspace      #1d2021 #504945 #1d2021
+        urgent_workspace        #cc241d #cc241d #1d2021
+    }
+    separator_symbol "::"
+    status_command i3status
+    font pango:MesloLGS NF Regular 8
+    workspace_buttons yes 
+}
