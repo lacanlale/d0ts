@@ -56,6 +56,8 @@ Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'git@github.com:907th/vim-auto-save.git' " AutoSave
 Plug 'git@github.com:tpope/vim-surround.git' " Surround
+Plug 'git@github.com:preservim/tagbar.git' " Tagbar for class info
+Plug 'jupyter-vim/jupyter-vim' " Jupyter plugin
 
 call plug#end()
 """""""""""
@@ -98,9 +100,10 @@ nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
 " Airline configs
-let g:airline_section_b = '%{strftime("%H:%M %b %d")}'
+let g:airline_section_z = '%{strftime("%H:%M %b %d")}'
 let g:airline_section_y = 'BN:%{bufnr("%")}'
 let g:airline_theme = 'angr'
+let g:airline_powerline_fonts = 1
 
 " AutoSave
 let g:auto_save = 1

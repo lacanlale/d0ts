@@ -107,9 +107,18 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end" {
 }
 bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end"
 
+# Present browser options
+mode "open: [c]hromium, [o]pera, [f]irefox" {
+    bindsym c exec --no-startup-id chromium
+    bindsym o exec --no-startup-id opera
+    bindsym f exec --no-startup-id firefox
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Shift+b mode "open: [c]hromium, [o]pera, [f]irefox"
+
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
 # Audio control
 bindsym $mod+Shift+plus exec pulseaudio-ctl up
 bindsym $mod+Shift+minus exec pulseaudio-ctl down
