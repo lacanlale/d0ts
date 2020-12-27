@@ -38,13 +38,13 @@ disk "/" {
 cpu_temperature 0 {
     format = "CPU: %degrees°C"
     max_threshold = 42
-    format_above_threshold = "!!HIGH TEMP!!"
+    format_above_threshold = "!!HIGH TEMP @ %degrees°C!!"
 }
 
 cpu_usage {
     format = "CPU: %usage"
     max_threshold = 50
-    format_above_threshold = "!!HIGH CPU USAGE!!"
+    format_above_threshold = "!!HIGH CPU USAGE @ %usage!!"
 }
 
 memory {
