@@ -13,3 +13,6 @@
     - Plugins:
         - zsh-autosuggestions
         - zsh-syntax-highligthing
+- Browser: qutebrowser
+    - Theme: modified for gruvbox colors
+    - Startpage: https://github.com/lacanlale/tea-green (modified fork from https://github.com/sadparadiseinhell/tea-green)

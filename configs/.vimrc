@@ -106,3 +106,6 @@ let g:airline_powerline_fonts = 1
 
 " AutoSave
 let g:auto_save = 1
+
+" Run grip for markdown previews
+nnoremap <C-m> :silent !grip -b --quiet
