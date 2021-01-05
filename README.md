@@ -16,3 +16,5 @@
 - Browser: qutebrowser
     - Theme: modified for gruvbox colors
     - Startpage: https://github.com/lacanlale/tea-green (modified fork from https://github.com/sadparadiseinhell/tea-green)
+- Reader: Zathura
+    - Theme: gruvbox (https://github.com/eastack/zathura-gruvbox)

@@ -18,7 +18,7 @@ exec_always --no-startup-id picom --config ~/.config/picom.conf
 # Mod1 = Alt key
 set $mod Mod4 
 
-# Turn borders off
+# Borders
 for_window [class="^.*"] border pixel 0
 
 # Change gap size
@@ -126,8 +126,7 @@ bindsym $mod+Shift+m exec pulseaudio-ctl mute
 
 ############ Other useful shortcuts ############
 # Set up screenshots and partial screenshots
-bindsym --release $mod+Control+p exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
-bindsym --release $mod+Shift+p exec maim -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release $mod+Shift+p exec xfce4-screenshooter -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
 
 # Bind brightness keys to light interface
@@ -147,7 +146,7 @@ bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
 bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
 bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 ######### Window Configurations ######### 
-default_border pixel 5 
+default_border pixel 2 
 default_orientation auto
 
 workspace_layout default
