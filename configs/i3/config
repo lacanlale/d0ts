@@ -19,7 +19,7 @@ exec_always --no-startup-id picom --config ~/.config/picom.conf
 set $mod Mod4 
 
 # Borders
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 
 # Change gap size
 gaps outer 4
@@ -30,9 +30,9 @@ floating_modifier $mod
 
 ############ $mod+KEY shortcuts ############
 # Application shortcuts
-bindsym $mod+m exec spotify 
-bindsym $mod+Return exec xfce4-terminal 
-bindsym $mod+b exec qutebrowser
+bindsym $mod+m --no-startup-id exec spotify 
+bindsym $mod+Return exec --no-startup-id xfce4-terminal 
+bindsym $mod+b exec --no-startup-id qutebrowser
 bindsym $mod+r exec i3-input -F 'Run >'
 bindsym $mod+z exec zoom-client
 #
@@ -71,6 +71,9 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 ############ $mod+Shift+KEY shortcuts ############
 bindsym $mod+Shift+q kill 
+
+# Open file manager
+bindsym $mod+Shift+f exec thunar
 
 # Move windows with shift + arrow keys
 bindsym $mod+Shift+Left move left
@@ -156,8 +159,8 @@ hide_edge_borders none
 workspace_auto_back_and_forth yes
 ######### Color Configurations ######### 
 # class                 border  backgr. text    indicator child_border
-client.focused          #FABD2F #D79921 #ebdbb2 #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ebdbb2 #484e50   #5f676a
+client.focused          #FABD2F #504945 #ebdbb2 #2e9ef4   #504945
+client.focused_inactive #333333 #5f676a #ebdbb2 #484e50   #1d2021
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ebdbb2 #900000   #900000
 client.placeholder      #000000 #0c0c0c #ebdbb2 #000000   #0c0c0c

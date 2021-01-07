@@ -51,12 +51,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox' " Colorscheme
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' 
 Plug 'https://github.com/ycm-core/YouCompleteMe.git' " Autocomplete
-Plug 'mbbill/undotree' " Undo Tree
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'git@github.com:907th/vim-auto-save.git' " AutoSave
 Plug 'git@github.com:tpope/vim-surround.git' " Surround
 Plug 'git@github.com:preservim/tagbar.git' " Tagbar for class info
+Plug 'lervag/vimtex' " Latex for Vim
 
 call plug#end()
 """""""""""
@@ -72,6 +72,7 @@ if executable('rg')
 end
 
 let mapleader=" " " Remap leader key
+let maplocalleader="\\"  " Remap local leader
 let g:netrw_browse_split=2
 let g:netrw_banner=0
 
@@ -88,11 +89,10 @@ nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ph :split <bar> :Ex <bar> :res 30<CR>
 
 " Window Resizing
-nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>= :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
-
-" Present undo tree
-nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <silent> <Leader>+ :resize +5<CR>
+nnoremap <silent> <Leader>_ :resize -5<CR>
 
 " YCM remaps
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
@@ -106,6 +106,3 @@ let g:airline_powerline_fonts = 1
 
 " AutoSave
 let g:auto_save = 1
-
-" Run grip for markdown previews
-nnoremap <C-m> :silent !grip -b --quiet
