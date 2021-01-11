@@ -3,10 +3,12 @@ exec --no-startup-id redshift
 
 for_window [class="qutebrowser"] move container to workspace 2: www
 for_window [class="Spotify"] move container to workspace 3: music
+for_window [class="zotero"] move container to workspace 5: read
 
 exec --no-startup-id spotify
 exec --no-startup-id qutebrowser
-exec --no-startup-id xfce4-terminal
+exec --no-startup-id zotero
+exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal vim; workspace 1'
 
 exec xset -dpms s off 
 
@@ -19,7 +21,7 @@ exec_always --no-startup-id picom --config ~/.config/picom.conf
 set $mod Mod4 
 
 # Borders
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 0
 
 # Change gap size
 gaps outer 4
@@ -30,7 +32,7 @@ floating_modifier $mod
 
 ############ $mod+KEY shortcuts ############
 # Application shortcuts
-bindsym $mod+m --no-startup-id exec spotify 
+bindsym $mod+m exec --no-startup-id spotify 
 bindsym $mod+Return exec --no-startup-id xfce4-terminal 
 bindsym $mod+b exec --no-startup-id qutebrowser
 bindsym $mod+r exec i3-input -F 'Run >'
@@ -45,8 +47,8 @@ bindsym $mod+1 workspace 1: home
 bindsym $mod+2 workspace 2: www
 bindsym $mod+3 workspace 3: music
 bindsym $mod+4 workspace 4: work
-# bindsym $mod+5 workspace 5
-# bindsym $mod+6 workspace 6
+bindsym $mod+5 workspace 5: read
+bindsym $mod+6 workspace 6: vids
 # bindsym $mod+7 workspace 7
 # bindsym $mod+8 workspace 8
 # bindsym $mod+9 workspace 9
@@ -66,7 +68,6 @@ bindsym $mod+o split h
 bindsym $mod+p split v
 
 # Change container layout
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 ############ $mod+Shift+KEY shortcuts ############
@@ -86,8 +87,8 @@ bindsym $mod+Shift+1 move container to workspace 1: home
 bindsym $mod+Shift+2 move container to workspace 2: www
 bindsym $mod+Shift+3 move container to workspace 3: music
 bindsym $mod+Shift+4 move container to workspace 4: work
-# bindsym $mod+Shift+5 move container to workspace 5
-# bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+5 move container to workspace 5: read
+bindsym $mod+Shift+6 move container to workspace 6: vids
 # bindsym $mod+Shift+7 move container to workspace 7
 # bindsym $mod+Shift+8 move container to workspace 8
 # bindsym $mod+Shift+9 move container to workspace 9
@@ -103,7 +104,7 @@ bindsym $mod+Shift+r restart
 mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end" {
     bindsym l exec i3-msg exit
     bindsym r exec systemctl reboot
-    bindsym s exec systemctl shutdown
+    bindsym s exec systemctl poweroff
     bindsym p exec systemctl suspend
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -120,8 +121,6 @@ mode "open: [c]hromium, [o]pera, [f]irefox" {
 }
 bindsym $mod+Shift+b mode "open: [c]hromium, [o]pera, [f]irefox"
 
-# Toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
 # Audio control
 bindsym $mod+Shift+plus exec pulseaudio-ctl up
 bindsym $mod+Shift+minus exec pulseaudio-ctl down
@@ -159,24 +158,24 @@ hide_edge_borders none
 workspace_auto_back_and_forth yes
 ######### Color Configurations ######### 
 # class                 border  backgr. text    indicator child_border
-client.focused          #FABD2F #504945 #ebdbb2 #2e9ef4   #504945
+client.focused          #504945 #504945 #ebdbb2 #2e9ef4   #504945
 client.focused_inactive #333333 #5f676a #ebdbb2 #484e50   #1d2021
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.unfocused        #504945 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ebdbb2 #900000   #900000
 client.placeholder      #000000 #0c0c0c #ebdbb2 #000000   #0c0c0c
 
-client.background       #ffffff
+client.background       #504945
 ######### Status bar config ##########
 bar {
     colors {
-        background #1d2021
+        background #262626
         statusline #ebdbb2
         separator #4b5262
         #                       border background text
-        focused_workspace       #689d6a #8ec07c #1d2021
-        active_workspace        #1d2021 #504945 #1d2021
-        inactive_workspace      #1d2021 #504945 #1d2021
-        urgent_workspace        #cc241d #cc241d #1d2021
+        focused_workspace       #AFD787 #AFD787 #1d2021
+        active_workspace        #504945 #504945 #1d2021
+        inactive_workspace      #504945 #504945 #1d2021
+        urgent_workspace        #cc241d #D75F5F #1d2021
     }
     separator_symbol "::"
     status_command i3status

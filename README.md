@@ -7,7 +7,9 @@
         - Airline
         - Autosave
         - Surround
-        - UndoTree
+        - Tagbar
+        - Latex
+        - Startify
 - Terminal: zsh
     - Theme: Powerlevel10k
     - Plugins:
@@ -18,3 +20,6 @@
     - Startpage: https://github.com/lacanlale/tea-green (modified fork from https://github.com/sadparadiseinhell/tea-green)
 - Reader: Zathura
     - Theme: gruvbox (https://github.com/eastack/zathura-gruvbox)
+- Spotify uses a [spictify](https://github.com/khanhas/spicetify-cli) theme
+    - Theme: gruvbox (https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish)
+

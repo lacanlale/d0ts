@@ -57,6 +57,7 @@ Plug 'git@github.com:907th/vim-auto-save.git' " AutoSave
 Plug 'git@github.com:tpope/vim-surround.git' " Surround
 Plug 'git@github.com:preservim/tagbar.git' " Tagbar for class info
 Plug 'lervag/vimtex' " Latex for Vim
+Plug 'mhinz/vim-startify' " Startup Page
 
 call plug#end()
 """""""""""
