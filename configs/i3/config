@@ -3,12 +3,13 @@ exec --no-startup-id redshift
 
 for_window [class="qutebrowser"] move container to workspace 2: www
 for_window [class="Spotify"] move container to workspace 3: music
-for_window [class="zotero"] move container to workspace 5: read
+for_window [class="Zotero"] move container to workspace 5: read
+for_window [class="zathura"] move container to workspace 5: read
 
 exec --no-startup-id spotify
-exec --no-startup-id qutebrowser
 exec --no-startup-id zotero
-exec --no-startup-id i3-msg 'workspace 3; exec xfce4-terminal vim; workspace 1'
+exec --no-startup-id qutebrowser
+exec --no-startup-id i3-msg 'exec xfce4-terminal vim; workspace 4: work'
 
 exec xset -dpms s off 
 
@@ -68,8 +69,7 @@ bindsym $mod+o split h
 bindsym $mod+p split v
 
 # Change container layout
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+w layout toggle tabbed split
 ############ $mod+Shift+KEY shortcuts ############
 bindsym $mod+Shift+q kill 
 
@@ -126,6 +126,9 @@ bindsym $mod+Shift+plus exec pulseaudio-ctl up
 bindsym $mod+Shift+minus exec pulseaudio-ctl down
 bindsym $mod+Shift+m exec pulseaudio-ctl mute
 
+# Move workspaces
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
 ############ Other useful shortcuts ############
 # Set up screenshots and partial screenshots
 bindsym --release $mod+Shift+p exec xfce4-screenshooter -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
@@ -159,7 +162,7 @@ workspace_auto_back_and_forth yes
 ######### Color Configurations ######### 
 # class                 border  backgr. text    indicator child_border
 client.focused          #504945 #504945 #ebdbb2 #2e9ef4   #504945
-client.focused_inactive #333333 #5f676a #ebdbb2 #484e50   #1d2021
+client.focused_inactive #504945 #222222 #888888 #292d2e   #222222
 client.unfocused        #504945 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ebdbb2 #900000   #900000
 client.placeholder      #000000 #0c0c0c #ebdbb2 #000000   #0c0c0c

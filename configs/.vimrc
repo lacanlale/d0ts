@@ -22,14 +22,17 @@ set smartindent
 " Set line numbers
 set nu
 
-" Disable line wrapping
-set nowrap
+" Enable line wrapping
+set wrap
+set linebreak
+set nolist
 
 " Case sensitive searching
 set smartcase
 
 " No other files will be swapped out
 set noswapfile
+
 
 " Undo stuff
 set nobackup
