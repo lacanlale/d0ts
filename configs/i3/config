@@ -37,8 +37,15 @@ bindsym $mod+m exec --no-startup-id spotify
 bindsym $mod+Return exec --no-startup-id xfce4-terminal 
 bindsym $mod+b exec --no-startup-id qutebrowser
 bindsym $mod+r exec i3-input -F 'Run >'
-bindsym $mod+z exec zoom-client
-#
+# choose between zoom or zotero
+mode "open: [1] zoom, [2] zotero" {
+    bindsym 1 exec --no-startup-id zoom; mode "default"
+    bindsym 2 exec --no-startup-id zotero; mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+z mode "open: [1] zoom, [2] zotero"
+
 # Bind keys to switch to next workspace
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
@@ -65,8 +72,8 @@ bindsym $mod+l focus right
 bindsym $mod+f fullscreen
 
 # Split in specified direction
-bindsym $mod+o split h
-bindsym $mod+p split v
+bindsym $mod+o layout toggle split h v
+bindsym $mod+p exec gnome-pomodoro
 
 # Change container layout
 bindsym $mod+w layout toggle tabbed split
@@ -105,7 +112,7 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end" {
     bindsym l exec i3-msg exit
     bindsym r exec systemctl reboot
     bindsym s exec systemctl poweroff
-    bindsym p exec systemctl suspend
+    bindsym p exec systemctl suspend; mode "default"
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
@@ -113,9 +120,9 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown, sus[p]end"
 
 # Present browser options
 mode "open: [c]hromium, [o]pera, [f]irefox" {
-    bindsym c exec --no-startup-id chromium
-    bindsym o exec --no-startup-id opera
-    bindsym f exec --no-startup-id firefox
+    bindsym c exec --no-startup-id chromium; mode "default"
+    bindsym o exec --no-startup-id opera; mode "default"
+    bindsym f exec --no-startup-id firefox; mode "default"
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
