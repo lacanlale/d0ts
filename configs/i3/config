@@ -1,15 +1,16 @@
 ######### Run upon start up ######### 
 exec --no-startup-id redshift
 
+for_window [class="gnome-pomodoro"] move container to workspace 1:home
 for_window [class="qutebrowser"] move container to workspace 2: www
 for_window [class="Spotify"] move container to workspace 3: music
 for_window [class="Zotero"] move container to workspace 5: read
 for_window [class="zathura"] move container to workspace 5: read
 
 exec --no-startup-id spotify
+exec --no-startup-id gnome-pomodoro
 exec --no-startup-id zotero
 exec --no-startup-id qutebrowser
-exec --no-startup-id i3-msg 'exec xfce4-terminal vim; workspace 4: work'
 
 exec xset -dpms s off 
 

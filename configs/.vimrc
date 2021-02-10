@@ -52,7 +52,6 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox' " Colorscheme
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' 
 Plug 'https://github.com/ycm-core/YouCompleteMe.git' " Autocomplete
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
@@ -61,6 +60,7 @@ Plug 'git@github.com:tpope/vim-surround.git' " Surround
 Plug 'git@github.com:preservim/tagbar.git' " Tagbar for class info
 Plug 'lervag/vimtex' " Latex for Vim
 Plug 'mhinz/vim-startify' " Startup Page
+Plug 'vim-vdebug/vdebug' " Debugger
 
 call plug#end()
 """""""""""
@@ -79,8 +79,6 @@ let mapleader=" " " Remap leader key
 let maplocalleader="\\"  " Remap local leader
 let g:netrw_browse_split=2
 let g:netrw_banner=0
-
-let g:ctrlp_use_caching=0 "ctrl-pp is fast enough so we don't need this
 
 " Window remaps
 nnoremap <leader>h :wincmd h<CR>
